@@ -92,7 +92,7 @@ const Contact = () => {
         soundManager.play('click');
 
         try {
-            await axios.post('http://localhost:5000/api/contact', formData);
+            await axios.post('https://my-portfolio-chwb.onrender.com/api/contact', formData);
             setStatus('success');
             setFormData({ name: '', email: '', subject: '', message: '' });
             soundManager.play('theme'); // Play a pleasant completion sound
