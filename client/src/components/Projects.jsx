@@ -57,6 +57,7 @@ const Projects = () => {
         return () => ctx.revert();
     }, []);
 
+    // Projects animation with batch reveal
     useBatchReveal(containerRef, ".project-card", { start: "top 80%" }, {
         from: { opacity: 0, scale: 0.9, y: 100, rotateX: 10, willChange: "transform, opacity, rotateX" },
         to: { opacity: 1, scale: 1, y: 0, rotateX: 0, duration: 1.2, stagger: 0.2, ease: "expo.out" }
