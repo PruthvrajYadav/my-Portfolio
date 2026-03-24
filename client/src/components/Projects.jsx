@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Tilt } from 'react-tilt';
 import { FaGithub, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 import { soundManager } from '../utils/sound';
-import { useParallax } from '../hooks/useParallax';
 import { useBatchReveal } from '../hooks/useBatchReveal';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,10 +62,21 @@ const Projects = () => {
         to: { opacity: 1, scale: 1, y: 0, rotateX: 0, duration: 1.2, stagger: 0.2, ease: "expo.out" }
     });
 
+    // Body Overflow Control
+    React.useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [selectedProject]);
+
     const openModal = (project) => {
         soundManager.play('click');
         setSelectedProject(project);
-        document.body.style.overflow = 'hidden';
 
         // Modal Entrance Animation
         setTimeout(() => {
@@ -87,7 +97,6 @@ const Projects = () => {
             scale: 0.8, opacity: 0, y: 20, duration: 0.4,
             onComplete: () => {
                 setSelectedProject(null);
-                document.body.style.overflow = 'auto';
             }
         });
     };

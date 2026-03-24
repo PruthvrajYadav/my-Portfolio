@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { gsap } from 'gsap';
 import { FaGithub, FaLinkedin, FaRocket } from 'react-icons/fa';
 import { soundManager } from '../utils/sound';

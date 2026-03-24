@@ -104,7 +104,7 @@ const Contact = () => {
             );
 
             setTimeout(() => setStatus(''), 5000);
-        } catch (error) {
+        } catch {
             setStatus('error');
             setTimeout(() => setStatus(''), 5000);
         }

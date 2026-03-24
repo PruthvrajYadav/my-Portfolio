@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
 
 const AnimatedBackground = () => {
     const canvasRef = useRef(null);

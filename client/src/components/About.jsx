@@ -2,7 +2,6 @@ import React, { useRef, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { soundManager } from '../utils/sound';
-import { useParallax } from '../hooks/useParallax';
 import { useReveal } from '../hooks/useReveal';
 import { useBatchReveal } from '../hooks/useBatchReveal';
 import img from '../assets/img/image.png';
@@ -10,7 +9,6 @@ import img from '../assets/img/image.png';
 const About = () => {
     const containerRef = useRef(null);
     const imageRef = useRef(null);
-    const barsRef = useRef([]);
 
     // Hooks replaces parts of the big useEffect
     // Background Text Parallax
@@ -33,41 +31,18 @@ const About = () => {
         return () => ctx.revert();
     }, []);
 
-    useReveal(containerRef, imageRef.current,
+    useReveal(containerRef, ".about-image-reveal",
         { clipPath: "polygon(0 0, 0 0, 0 100%, 0 100%)", scale: 1.2, filter: "grayscale(100%)" },
         { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", scale: 1, filter: "grayscale(0%)", duration: 1.5, ease: "power4.out", scrollTrigger: { start: "top 80%" } }
     );
 
-    // Filter valid bars for batching
-    const validBars = barsRef.current.filter(b => b);
-    useBatchReveal(containerRef, validBars, { start: "top 95%" }, {
+    // useBatchReveal for skill bars using string selector
+    useBatchReveal(containerRef, ".skill-bar-fill", { start: "top 95%" }, {
         from: { width: 0 },
         to: { width: (i, t) => t.dataset.width, duration: 1.5, ease: "power2.out", stagger: 0.1 }
     });
 
-    // Remainder Custom Animations (Timeline + Floating)
-    useLayoutEffect(() => {
-        const ctx = gsap.context(() => {
-            // Optimization: Hardware acceleration hints
-            gsap.set(".about-text, .stats-card, .image-container", { willChange: "transform, opacity" });
-            gsap.set(imageRef.current, { willChange: "clip-path, transform, filter" }); // Keep this here as imageRef.current is used by useReveal
-
-            // Floating Image Container
-            gsap.to(".image-container", { y: -15, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
-
-            // Specific Timeline for Text + Stats
-            const tl = gsap.timeline({ scrollTrigger: { trigger: ".about-content", start: "top 85%" } });
-            tl.fromTo(".about-text", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out" })
-                .fromTo(".stats-card", { x: 50, opacity: 0 }, { x: 0, opacity: 1, stagger: 0.15, duration: 1, ease: "back.out(1.2)" }, "-=0.5");
-        }, containerRef);
-        return () => ctx.revert();
-    }, []);
-
-    const addBarRef = (el) => {
-        if (el && !barsRef.current.includes(el)) {
-            barsRef.current.push(el);
-        }
-    };
+    // Timeline + Floating Animations
 
     const handleGlow = (e) => {
         const rect = e.currentTarget.getBoundingClientRect();
@@ -95,7 +70,7 @@ const About = () => {
                     {/* Left: Image with 3D feel */}
                     <div className="image-container relative group perspective-1000">
                         <div className="absolute -inset-4 bg-gradient-to-r from-orange-600 to-red-600 rounded-2xl opacity-20 blur-2xl group-hover:opacity-40 transition-opacity duration-500" />
-                        <div ref={imageRef} className="relative aspect-[3/4] md:aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                        <div ref={imageRef} className="about-image-reveal relative aspect-[3/4] md:aspect-square rounded-2xl overflow-hidden shadow-2xl">
                             <img
                                 src={img}
                                 alt="Profile"
@@ -153,9 +128,8 @@ const About = () => {
                                     </div>
                                     <div className="h-1 w-full bg-gray-100 dark:bg-white/5 rounded-full overflow-hidden">
                                         <div
-                                            ref={addBarRef}
                                             data-width={skill.width}
-                                            className="h-full bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)]"
+                                            className="skill-bar-fill h-full bg-gradient-to-r from-orange-500 to-red-600 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)]"
                                         />
                                     </div>
                                 </div>

@@ -4,7 +4,6 @@ import { gsap } from 'gsap';
 const Cursor = () => {
     const mainCursor = useRef(null);
     const secondaryCursor = useRef(null);
-    const [isHovering, setIsHovering] = useState(false);
     const [isPointer, setIsPointer] = useState(false);
 
     useEffect(() => {
