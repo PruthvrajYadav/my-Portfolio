@@ -92,7 +92,7 @@ const Contact = () => {
         soundManager.play('click');
 
         try {
-            const apiUrl = import.meta.env.VITE_API_URL || 'https://my-portfolio-chwb.onrender.com';
+            const apiUrl = (import.meta.env.VITE_API_URL || 'https://my-portfolio-chwb.onrender.com').trim();
             await axios.post(`${apiUrl}/api/contact`, formData);
             setStatus('success');
             setFormData({ name: '', email: '', subject: '', message: '' });
