@@ -83,7 +83,7 @@ const Resume = () => {
                     <div className="flex flex-col sm:flex-row gap-6">
                         <Magnetic>
                             <a
-                                href="/resume.pdf"
+                                href="/pruthviraj_yadav.pdf"
                                 download="Pruthviraj_Yadav_Resume.pdf"
                                 onClick={() => soundManager.play('click')}
                                 onMouseEnter={() => soundManager.play('hover')}
@@ -96,7 +96,7 @@ const Resume = () => {
 
                         <Magnetic>
                             <a
-                                href="/resume.pdf"
+                                href="/pruthviraj_yadav.pdf"
                                 target="_blank"
                                 rel="noreferrer"
                                 onClick={() => soundManager.play('click')}

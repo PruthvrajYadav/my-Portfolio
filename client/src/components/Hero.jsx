@@ -166,7 +166,7 @@ const Hero = () => {
 
                     <Magnetic>
                         <a
-                            href="/resume.pdf"
+                            href="/pruthviraj_yadav.pdf"
                             download="Pruthviraj_Yadav_Resume.pdf"
                             onClick={() => soundManager.play('click')}
                             onMouseEnter={() => soundManager.play('hover')}
