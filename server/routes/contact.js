@@ -42,7 +42,11 @@ router.post('/', async (req, res) => {
         res.status(201).json(savedMessage);
     } catch (err) {
         console.error('Contact Error:', err);
-        res.status(500).json({ error: 'Failed to send message' });
+        res.status(500).json({ 
+            error: 'Failed to send message', 
+            details: err.message,
+            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+        });
     }
 });
 
