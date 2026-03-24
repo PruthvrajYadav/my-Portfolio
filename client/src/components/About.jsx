@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { soundManager } from '../utils/sound';
 import { useReveal } from '../hooks/useReveal';
 import { useBatchReveal } from '../hooks/useBatchReveal';
+import { FaDownload } from 'react-icons/fa';
+import Magnetic from './Magnetic';
 import img from '../assets/img/image.png';
 
 const About = () => {
@@ -104,7 +106,7 @@ const About = () => {
                                 onMouseMove={handleGlow}
                             >
                                 <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'radial-gradient(400px circle at var(--x) var(--y), rgba(249, 115, 22, 0.15), transparent 40%)' }} />
-                                <h4 className="text-2xl md:text-3xl font-black text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform relative z-10">6 month</h4>
+                                <h4 className="text-2xl md:text-3xl font-black text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform relative z-10">9+ months</h4>
                                 <p className="text-[10px] md:text-sm text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest relative z-10">Experience</p>
                             </div>
                             <div
@@ -116,6 +118,24 @@ const About = () => {
                                 <h4 className="text-2xl md:text-3xl font-black text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform relative z-10">2</h4>
                                 <p className="text-[10px] md:text-sm text-gray-600 dark:text-gray-400 font-bold uppercase tracking-widest relative z-10">Masterpieces</p>
                             </div>
+                        </div>
+
+                        <div className="mb-12">
+                            <Magnetic>
+                                <a
+                                    href="/resume.pdf"
+                                    download="Pruthviraj_Yadav_Resume.pdf"
+                                    onClick={() => soundManager.play('click')}
+                                    onMouseEnter={() => soundManager.play('hover')}
+                                    className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 overflow-hidden"
+                                >
+                                    <span className="relative z-10 flex items-center gap-3">
+                                        <FaDownload className="group-hover:translate-y-1 transition-transform" />
+                                        Download CV
+                                    </span>
+                                    <div className="absolute inset-0 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10" />
+                                </a>
+                            </Magnetic>
                         </div>
 
                         {/* Skill Bars */}

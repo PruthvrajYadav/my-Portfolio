@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { soundManager } from '../utils/sound';
 import Magnetic from './Magnetic';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaDownload } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,13 +165,25 @@ const Hero = () => {
                     </Magnetic>
 
                     <Magnetic>
+                        <a
+                            href="/resume.pdf"
+                            download="Pruthviraj_Yadav_Resume.pdf"
+                            onClick={() => soundManager.play('click')}
+                            onMouseEnter={() => soundManager.play('hover')}
+                            className="bg-transparent text-orange-600 dark:text-orange-400  w-full md:w-auto border border-gray-200 dark:border-white/10 hover:border-orange-500 transition-all px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em] flex items-center justify-center gap-2"
+                        >
+                            Get Resume <FaDownload className="text-[10px]" />
+                        </a>
+                    </Magnetic>
+
+                    <Magnetic>
                         <button
                             onClick={() => {
                                 soundManager.play('click');
                                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                             }}
                             onMouseEnter={() => soundManager.play('hover')}
-                            className="bg-transparent text-orange-600 dark:text-orange-400  w-full md:w-auto border border-gray-200 dark:border-white/10 hover:border-orange-500 transition-all px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em]"
+                            className="bg-transparent text-gray-500 dark:text-gray-400 w-full md:w-auto border border-gray-100 dark:border-white/5 hover:border-gray-300 transition-all px-8 md:px-10 py-4 md:py-5 rounded-full font-black text-[10px] md:text-xs uppercase tracking-[0.2em] md:tracking-[0.3em]"
                         >
                             Contact Me
                         </button>
