@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pruthviraj-yadav.vercel.app/sitemap.xml

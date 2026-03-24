@@ -20,6 +20,9 @@ import ThemeToggle from './components/ThemeToggle';
 
 gsap.registerPlugin(ScrollTrigger);
 
+import { HelmetProvider } from 'react-helmet-async';
+import SEO from './components/SEO';
+
 function App() {
     const [loading, setLoading] = useState(true);
     const [scrollProgress, setScrollProgress] = useState(0);
@@ -112,7 +115,8 @@ function App() {
     }, []);
 
     return (
-        <>
+        <HelmetProvider>
+            <SEO />
             {loading && <Loader setLoading={setLoading} />}
             <div ref={appRef} className="bg-[var(--bg-color)] min-h-screen text-black dark:text-white transition-colors duration-700 selection:bg-blue-500/30">
                 <div
@@ -133,7 +137,7 @@ function App() {
                 </main>
                 <Footer />
             </div>
-        </>
+        </HelmetProvider>
     );
 }
 
