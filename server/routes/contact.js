@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
     const { name, email, subject, message } = req.body;
 
     try {
+        console.log('Attempting to save message to DB...');
         // Save to Database
         const newMessage = new Message({
             name,
@@ -18,7 +19,9 @@ router.post('/', async (req, res) => {
             message
         });
         const savedMessage = await newMessage.save();
+        console.log('Message saved to DB successfully.');
 
+        console.log('Attempting to send email...');
         // Send Email notification
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -29,23 +32,27 @@ router.post('/', async (req, res) => {
         });
 
         const mailOptions = {
-            from: email,
+            from: process.env.GMAIL_USER, // Gmail requires this to be the authenticated user
             to: process.env.GMAIL_USER,
             subject: `Portfolio: ${subject || 'New Message'} from ${name}`,
             text: `You have a new message from your portfolio contact form.\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
             replyTo: email
         };
 
-        // We don't want to block the response if email fails, but for "fully working" we should check
-        await transporter.sendMail(mailOptions);
+        // Timeout for email attempt to avoid hanging
+        await Promise.race([
+            transporter.sendMail(mailOptions),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('Email sending timed out after 10s')), 10000))
+        ]);
+        console.log('Email sent successfully.');
 
         res.status(201).json(savedMessage);
     } catch (err) {
-        console.error('Contact Error:', err);
+        console.error('Contact Detailed Error:', err);
         res.status(500).json({ 
             error: 'Failed to send message', 
             details: err.message,
-            stack: process.env.NODE_ENV === 'development' ? err.stack : undefined
+            step: savedMessage ? 'Email Notification' : 'Database Save'
         });
     }
 });
