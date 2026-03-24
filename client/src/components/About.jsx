@@ -120,24 +120,6 @@ const About = () => {
                             </div>
                         </div>
 
-                        <div className="mb-12">
-                            <Magnetic>
-                                <a
-                                    href="/pruthviraj_yadav.pdf"
-                                    download="Pruthviraj_Yadav_Resume.pdf"
-                                    onClick={() => soundManager.play('click')}
-                                    onMouseEnter={() => soundManager.play('hover')}
-                                    className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-black rounded-2xl font-black text-[10px] md:text-xs uppercase tracking-[0.2em] shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95 overflow-hidden"
-                                >
-                                    <span className="relative z-10 flex items-center gap-3">
-                                        <FaDownload className="group-hover:translate-y-1 transition-transform" />
-                                        Download CV
-                                    </span>
-                                    <div className="absolute inset-0 bg-orange-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10" />
-                                </a>
-                            </Magnetic>
-                        </div>
-
                         {/* Skill Bars */}
                         <div className="space-y-6">
                             {skills.map((skill, index) => (

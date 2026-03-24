@@ -105,7 +105,9 @@ const Contact = () => {
             );
 
             setTimeout(() => setStatus(''), 5000);
-        } catch {
+        } catch (error) {
+            console.error('Email Send Error:', error);
+            console.error('Error Response:', error.response?.data);
             setStatus('error');
             setTimeout(() => setStatus(''), 5000);
         }

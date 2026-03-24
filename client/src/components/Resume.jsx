@@ -14,6 +14,18 @@ const Resume = () => {
         const ctx = gsap.context(() => {
             const el = containerRef.current;
 
+            // Background Text Parallax (Left to Right Sweep)
+            gsap.to(".bg-text", {
+                xPercent: 30,
+                opacity: 0.08,
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.5
+                }
+            });
+
             // Section Reveal
             gsap.fromTo(".resume-reveal",
                 { y: 50, opacity: 0 },
