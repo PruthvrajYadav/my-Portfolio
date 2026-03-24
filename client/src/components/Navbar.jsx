@@ -51,8 +51,8 @@ const Navbar = () => {
                         onClick={() => handleNavClick('home')}
                         onMouseEnter={() => soundManager.play('hover')}
                     >
-                        <span className="text-3xl font-black tracking-tighter italic group-hover:scale-110 transition-transform block text-gray-900 dark:text-white">
-                            PRUT<span className="text-orange-600">HVI.</span>
+                        <span className="text-3xl font-black tracking-tighter italic group-hover:scale-110 transition-transform block text-orange-600 dark:text-orange-500">
+                            PRUT<span className="text-gray-900 dark:text-white">HVI.</span>
                         </span>
                     </div>
 

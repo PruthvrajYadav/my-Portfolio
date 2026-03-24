@@ -80,7 +80,7 @@ const About = () => {
                             <div className="absolute bottom-8 left-8">
                                 <p className="text-white text-3xl font-black tracking-tighter mb-1">PRUTHVIRAJ</p>
                                 <div className="h-1 w-12 bg-orange-500 mb-2" />
-                                <p className="text-gray-300 font-bold uppercase tracking-widest text-xs">Innovator & Architect</p>
+                                <p className="text-gray-300 font-bold uppercase tracking-widest text-xs">Web Developer</p>
                             </div>
                         </div>
                     </div>

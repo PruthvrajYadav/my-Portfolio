@@ -108,18 +108,18 @@ const Experience = () => {
 
     const experiences = [
         {
-            company: "WorknAI (Punarmilan Project)",
-            role: "Full Stack Developer Intern",
-            period: "Jan 2026 – Mar 2026",
-            location: "3 Months",
-            description: "Worked on the live project 'Punarmilan' as a Frontend Developer. Handled frontend development, integrated APIs for dynamic functionality, and built responsive UI using HTML, CSS, Bootstrap, and JavaScript. Collaborated with the backend team for seamless integration."
-        },
-        {
             company: "Code Chakra Tech",
             role: "MERN Stack Intern",
             period: "Sept 2024 – Feb 2025",
             location: "Sangli",
             description: "Spearheaded the development of scalable full-stack applications. Integrated complex RESTful APIs and optimized MongoDB query performance by 40%. Collaborated in an agile environment to deliver user-centric features."
+        },
+        {
+            company: "WorknAI (Punarmilan Project)",
+            role: "Full Stack Developer Intern / Frontend Developer",
+            period: "Jan 2026 – Mar 2026",
+            location: "3 Months",
+            description: "Worked on the live project 'Punarmilan' as a Frontend Developer. Handled frontend development, integrated APIs for dynamic functionality, and built responsive UI using HTML, CSS, Bootstrap, and JavaScript. Collaborated with the backend team for seamless integration."
         }
     ];
 
@@ -159,7 +159,7 @@ const Experience = () => {
                                     >
                                         <div className="flex flex-col gap-2 mb-4 transform translate-z-10 text-left md:contents">
                                             <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-orange-500">{exp.period}</span>
-                                            <h4 className="text-xl md:text-2xl font-black">{exp.role}</h4>
+                                            <h4 className="text-xl md:text-2xl font-black text-gray-900 dark:text-white">{exp.role}</h4>
                                             <p className="text-orange-400 font-bold text-base md:text-lg">{exp.company}</p>
                                         </div>
                                         <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed transform translate-z-5 text-left">

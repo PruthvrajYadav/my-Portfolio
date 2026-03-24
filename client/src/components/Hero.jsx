@@ -139,7 +139,7 @@ const Hero = () => {
                     </span>
                 </div>
 
-                <h1 ref={titleRef} className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black mb-6 tracking-tighter leading-none flex flex-wrap justify-center">
+                <h1 ref={titleRef} className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] font-black mb-6 tracking-tighter leading-none flex flex-wrap justify-center text-gray-900 dark:text-white">
                     Pruthviraj
                 </h1>
 

@@ -29,8 +29,8 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid md:grid-cols-3 gap-12 items-center text-center md:text-left mb-16">
                     <div>
-                        <h2 className="text-3xl font-black text-white tracking-tighter mb-4 italic">
-                            PRUT<span className="text-orange-600">HVI.</span>
+                        <h2 className="text-3xl font-black text-orange-600 dark:text-orange-500 tracking-tighter mb-4 italic">
+                            PRUT<span className="text-gray-900 dark:text-white">HVI.</span>
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400 font-bold uppercase tracking-widest text-xs leading-loose">
                             Crafting innovative digital solutions with a focus on impact and elegance.
