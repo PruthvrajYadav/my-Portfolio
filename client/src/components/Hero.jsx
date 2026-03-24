@@ -3,7 +3,6 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { soundManager } from '../utils/sound';
 import Magnetic from './Magnetic';
-import { FaChevronDown, FaDownload } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,18 +113,6 @@ const Hero = () => {
             ctx.revert();
         };
     }, []);
-
-    const scrollToAbout = () => {
-        soundManager.play('click');
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-            gsap.to(window, {
-                duration: 2,
-                scrollTo: { y: aboutSection, offsetY: 0 },
-                ease: "power4.inOut"
-            });
-        }
-    };
 
     return (
         <section id="home" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
