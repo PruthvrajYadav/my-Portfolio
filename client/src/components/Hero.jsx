@@ -196,7 +196,6 @@ const Hero = () => {
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 cursor-pointer flex flex-col items-center group"
                 >
                     <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-orange-600 dark:via-orange-400 to-orange-600 dark:to-orange-400 mb-2" />
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-orange-600 dark:text-orange-400 font-bold">Scroll</span>
                     <FaChevronDown className="mt-2 text-orange-500 group-hover:translate-y-1 transition-transform animate-bounce" />
                 </div>
             </div>
