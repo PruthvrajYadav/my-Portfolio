@@ -90,7 +90,7 @@ const Experience = () => {
             gsap.fromTo(".exp-counter",
                 { innerHTML: 0 },
                 {
-                    innerHTML: 6,
+                    innerHTML: 9,
                     duration: 2,
                     ease: "power2.out",
                     snap: { innerHTML: 1 },
@@ -107,6 +107,13 @@ const Experience = () => {
     }, []);
 
     const experiences = [
+        {
+            company: "WorknAI (Punarmilan Project)",
+            role: "Full Stack Developer Intern",
+            period: "Jan 2026 – Mar 2026",
+            location: "3 Months",
+            description: "Worked on the live project 'Punarmilan' as a Frontend Developer. Handled frontend development, integrated APIs for dynamic functionality, and built responsive UI using HTML, CSS, Bootstrap, and JavaScript. Collaborated with the backend team for seamless integration."
+        },
         {
             company: "Code Chakra Tech",
             role: "MERN Stack Intern",
