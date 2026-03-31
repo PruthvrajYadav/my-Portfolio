@@ -20,8 +20,8 @@ const Projects = () => {
             image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?fit=crop&w=800&q=80",
             description: "Developed a full-stack web application that allows users to create, edit, and manage blog posts with user authentication, rich text editing, and responsive UI. Implemented RESTful APIs for CRUD operations and integrated MongoDB for data storage.",
             tech: ["React.js", "Node.js", "Express.js", "MongoDB", "JWT"],
-            github: "https://github.com",
-            live: "https://simple-blog-website-two.vercel.app/",
+            github: "https://github.com/PruthvrajYadav/BlogWebsite",
+            live: "https://blog-website-git-main-pruthvrajyadavs-projects.vercel.app/",
             color: "from-purple-500 to-indigo-600"
         },
         {
